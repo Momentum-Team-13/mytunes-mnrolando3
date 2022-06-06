@@ -1,0 +1,11 @@
+#page{
+    border: 5px solid magenta;
+}
+
+.search {
+    border: 5px solid lightblue;
+}
+
+.results {
+    border: 5px solid salmon;
+}
