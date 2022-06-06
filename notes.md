@@ -16,3 +16,6 @@ Questions
 - NPM install
 - reloading page
 - how are HTTP errors handled in JS?
+
+To Do
+- Filter to only show userSearch = song.artistName
