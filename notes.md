@@ -1,5 +1,6 @@
 Form
 - input for artist/band that filters song data
+    - key1=value1&key2=value2&key3=value3 build in innerText/innerHTML where key is 'term' and value is artist name with substituting '+' for spaces in artist name
 - input box has click "submit" button event listener and keyboard "return" event listener
 - can't submit empty input
 
