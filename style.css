@@ -1,16 +1,48 @@
 #page {
-    border: 5px solid magenta;
+    font-family: Arial, sans-serif;
 }
 
-#search {
+#player {
+    margin-bottom: 20px;
+}
+
+#search {}
+
+#box {
     border: 2px solid lightblue;
     border-radius: 4px;
 }
 
 #results {
-    border: 5px solid black;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .songs {
-    border: 5px solid green;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid lightgray;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 2px;
+}
+
+.tracks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* only some of these center?? */
+    width: 200px;
+    font-family: Arial, sans-serif;
+    font-size: small;
+}
+
+img {
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.preview {
+    display: none;
 }

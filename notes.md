@@ -6,17 +6,20 @@ Form
 
 Results
 - display without reloading page -- what does this mean??
-- determine quantity of results to return
-- clear message for no results
+- determine quantity of results to return - DONE
+- message for no results
 - message for HTTP errors in UI and how to handle in JS -- ??
-- include song details (title, artist, album title, image, release date)
-- ability to click song (event listener) and have it play (audio tag)
+- include song details (title, artist, album title, image, release date) - DONE
+- ability to click song (event listener) and have it play (audio tag) - DONE
 
 Questions
 - NPM install
 - reloading page
 - how are HTTP errors handled in JS?
-- do I need to make another function for the search to add both or do I need to just copy the code to search with two separate event listeners??
 
 To Do
-- Replace previous results with new results
+- can't submit empty input
+- message for no results
+- display without reloading page -- what does this mean??
+- message for HTTP errors in UI and how to handle in JS -- ??
+- Track title centering in CSS

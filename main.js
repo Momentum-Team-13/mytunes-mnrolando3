@@ -1,9 +1,17 @@
 const pageElement = document.querySelector('#page');
 
-const searchBox = document.querySelector('#search');
-pageElement.appendChild(searchBox)
+const audioPlayer = document.querySelector('#player')
+pageElement.appendChild(audioPlayer)
+
+const searchElement = document.querySelector('#search')
+pageElement.appendChild(searchElement)
+
+const inputBox = document.querySelector('#box');
+searchElement.appendChild(inputBox)
+
 const submitButton = document.querySelector('#submit');
-pageElement.appendChild(submitButton)
+searchElement.appendChild(submitButton)
+
 const resultElement = document.querySelector('#results')
 pageElement.appendChild(resultElement)
 //these variables are for elements on my page
@@ -16,21 +24,41 @@ function buildResultList(songData) {
     songData.map(function (song) {
         console.log("Songs Line 22", song.trackName);
 
-        let songElement = document.createElement('div');
+        let songElement = document.createElement('div')
         songElement.classList.add('songs')
-        songElement.innerText = `${song.trackName}, ${song.artistName}, ${song.artworkUrl30}, ${song.previewUrl}`;
-        resultElement.appendChild(songElement);
+        resultElement.appendChild(songElement)
+
+        let albumArt = document.createElement('div')
+        albumArt.innerHTML = `<img src=${song.artworkUrl100}>`
+        songElement.appendChild(albumArt)
+
+        let trackInfo = document.createElement('div')
+        trackInfo.classList.add('tracks')
+        trackInfo.innerText = `${song.trackName} by ${song.artistName}`
+        songElement.appendChild(trackInfo)
+
+        let previewAudio = document.createElement('div')
+        previewAudio.classList.add('preview')
+        previewAudio.innerText = song.previewUrl
+        songElement.appendChild(previewAudio)
+
+        songElement.addEventListener("click", function (event) {
+            if (event.target.textContent.includes(song.trackName)) {
+                audioPlayer.src = event.target.nextElementSibling.innerText
+            }
+        })
+        //this creates an event listener for a click within the song element and, if text content of target clicked includes the track name, then it will replace the source of the audio player with the next element's inner text
     });
 };
 //this function builds the list of search results
 
 submitButton.addEventListener("click", function (event) {
-    let userSearch = searchBox.value
-    console.log("userSearch Line 21", searchBox.value);
-    //this prints to the text entered by the user into the searchBox element, which occurs when the submitButton is clicked
+    let userSearch = inputBox.value
+    console.log("userSearch Line 21", inputBox.value);
+    //this prints to the text entered by the user into the inputBox element, which occurs when the submitButton is clicked
 
     let myTunes = `https://itunes.apple.com/search?term=${userSearch}&media=music`;
-    //this defines the API link as a base with the sting of the value entered into the searchBox by the user (userSearch)
+    //this defines the API link as a base with the sting of the value entered into the inputBox by the user (userSearch)
 
     fetch(myTunes, {
         method: 'GET',
@@ -55,12 +83,12 @@ submitButton.addEventListener("click", function (event) {
 document.addEventListener("keyup", (event) => {
     if (event.key == "Enter") {
         console.log("Enter")
-        let userSearch = searchBox.value
-        console.log("userSearch Line 59", searchBox.value);
-        //this prints to the text entered by the user into the searchBox element, which occurs when the submitButton is clicked
+        let userSearch = inputBox.value
+        console.log("userSearch Line 59", inputBox.value);
+        //this prints to the text entered by the user into the inputBox element, which occurs when the submitButton is clicked
 
         let myTunes = `https://itunes.apple.com/search?term=${userSearch}&media=music`;
-        //this defines the API link as a base with the sting of the value entered into the searchBox by the user (userSearch)
+        //this defines the API link as a base with the sting of the value entered into the inputBox by the user (userSearch)
 
         fetch(myTunes, {
             method: 'GET',
