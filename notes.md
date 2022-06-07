@@ -1,5 +1,5 @@
 Form
-- input for artist/band that filters song data - IN PROGRESS
+- input for artist/band that filters song data - DONE
     - key1=value1&key2=value2&key3=value3 build in innerText/innerHTML where key is 'term' and value is artist name with substituting '+' for spaces in artist name
 - input box has click "submit" button event listener and keyboard "return" event listener - DONE
 - can't submit empty input
@@ -19,5 +19,4 @@ Questions
 - do I need to make another function for the search to add both or do I need to just copy the code to search with two separate event listeners??
 
 To Do
-- Filter to only show userSearch = song.artistName
 - Replace previous results with new results

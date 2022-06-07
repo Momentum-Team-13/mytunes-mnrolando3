@@ -1,28 +1,25 @@
 const pageElement = document.querySelector('#page');
 
-let pageTitle = document.createElement('h1');
-pageTitle.innerText = "Music Search";
-pageElement.appendChild(pageTitle);
-
-let searchBox = document.createElement('input');
-searchBox.classList.add("search");
-pageElement.appendChild(searchBox);
-
-let submitButton = document.createElement('button');
-submitButton.innerText = "Submit";
-pageElement.appendChild(submitButton);
+const searchBox = document.querySelector('#search');
+pageElement.appendChild(searchBox)
+const submitButton = document.querySelector('#submit');
+pageElement.appendChild(submitButton)
+const resultElement = document.querySelector('#results')
+pageElement.appendChild(resultElement)
 //these variables are for elements on my page
 
 function buildResultList(songData) {
     console.log("Function Line 14", songData)
 
+    resultElement.innerHTML = ""
+    //replaces resultElement with empty string as first action when function is called
     songData.map(function (song) {
         console.log("Songs Line 22", song.trackName);
 
         let songElement = document.createElement('div');
-        songElement.classList.add('results');
-        songElement.innerText = `${song.trackName}, ${song.artistName}`;
-        pageElement.appendChild(songElement);
+        songElement.classList.add('songs')
+        songElement.innerText = `${song.trackName}, ${song.artistName}, ${song.artworkUrl30}, ${song.previewUrl}`;
+        resultElement.appendChild(songElement);
     });
 };
 //this function builds the list of search results
@@ -59,7 +56,7 @@ document.addEventListener("keyup", (event) => {
         console.log("userSearch Line 59", searchBox.value);
         //this prints to the text entered by the user into the searchBox element, which occurs when the submitButton is clicked
 
-        let myTunes = `https://itunes.apple.com/search?term=${userSearch}`;
+        let myTunes = `https://itunes.apple.com/search?term=${userSearch}&media=music`;
         //this defines the API link as a base with the sting of the value entered into the searchBox by the user (userSearch)
 
         fetch(myTunes, {

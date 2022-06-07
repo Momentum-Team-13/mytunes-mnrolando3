@@ -1,11 +1,15 @@
-#page{
+#page {
     border: 5px solid magenta;
 }
 
-.search {
+#search {
     border: 5px solid lightblue;
 }
 
-.results {
-    border: 5px solid salmon;
+#results {
+    border: 5px solid black;
+}
+
+.songs {
+    border: 5px solid green;
 }
