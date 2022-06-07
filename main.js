@@ -46,6 +46,9 @@ submitButton.addEventListener("click", function (event) {
             buildResultList(data.results)
             //this calls the buildSongList function with the promised response
         })
+        .catch(err => {
+            window.alert("Error Encountered")
+        })
     // fetch is nested in event listener so data is only fetched when the event occurs
 })
 
@@ -72,6 +75,9 @@ document.addEventListener("keyup", (event) => {
                 //this returns an array of data results
                 buildResultList(data.results)
                 //this calls the buildSongList function with the promised response
+            })
+            .catch(err => {
+                window.alert("Error Encountered")
             })
         //fetch is nested in event listener so data is only fetched when the event occurs
     }

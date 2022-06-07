@@ -3,7 +3,8 @@
 }
 
 #search {
-    border: 5px solid lightblue;
+    border: 2px solid lightblue;
+    border-radius: 4px;
 }
 
 #results {
