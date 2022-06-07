@@ -32,49 +32,50 @@ submitButton.addEventListener("click", function (event) {
     console.log("userSearch Line 21", searchBox.value);
     //this prints to the text entered by the user into the searchBox element, which occurs when the submitButton is clicked
 
-    let myTunes = `https://itunes.apple.com/search?term=${userSearch}`;
+    let myTunes = `https://itunes.apple.com/search?term=${userSearch}&media=music`;
     //this defines the API link as a base with the sting of the value entered into the searchBox by the user (userSearch)
 
     fetch(myTunes, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
-    });
+    })
         //this gets the iTunes API data
         .then(function (response) {
-        return response.json()
-    });
+            return response.json()
+        })
         .then(function (data) {
-        console.log("Data Line 36", data.results)
-        //this returns an array of data results
-        buildResultList(data.results)
-        //this calls the buildSongList function with the promised response
-    });
-    //fetch is nested in event listener so data is only fetched when the event occurs
-});
+            console.log("Data Line 36", data.results)
+            //this returns an array of data results
+            buildResultList(data.results)
+            //this calls the buildSongList function with the promised response
+        })
+    // fetch is nested in event listener so data is only fetched when the event occurs
+})
 
-// document.addEventListener("keydown", (event) => {
-//     if (event.key == "enter") {
-//         let userSearch = searchBox.value
-//         console.log("userSearch Line 21", searchBox.value);
-//         //this prints to the text entered by the user into the searchBox element, which occurs when the submitButton is clicked
+document.addEventListener("keyup", (event) => {
+    if (event.key == "Enter") {
+        console.log("Enter")
+        let userSearch = searchBox.value
+        console.log("userSearch Line 59", searchBox.value);
+        //this prints to the text entered by the user into the searchBox element, which occurs when the submitButton is clicked
 
-//         let myTunes = `https://itunes.apple.com/search?term=${userSearch}`;
-//         //this defines the API link as a base with the sting of the value entered into the searchBox by the user (userSearch)
+        let myTunes = `https://itunes.apple.com/search?term=${userSearch}`;
+        //this defines the API link as a base with the sting of the value entered into the searchBox by the user (userSearch)
 
-//         fetch(myTunes, {
-//             method: 'GET',
-//             headers: { 'Content-Type': 'application/json' },
-//         });
-//         //this gets the iTunes API data
-//         .then(function (response) {
-//             return response.json()
-//         });
-//         .then(function (data) {
-//             console.log("Data Line 36", data.results)
-//             //this returns an array of data results
-//             buildResultList(data.results)
-//             //this calls the buildSongList function with the promised response
-//         });
-//         //fetch is nested in event listener so data is only fetched when the event occurs
-//     };
-// });
+        fetch(myTunes, {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' },
+        })
+            //this gets the iTunes API data
+            .then(function (response) {
+                return response.json()
+            })
+            .then(function (data) {
+                console.log("Data Line 74", data.results)
+                //this returns an array of data results
+                buildResultList(data.results)
+                //this calls the buildSongList function with the promised response
+            })
+        //fetch is nested in event listener so data is only fetched when the event occurs
+    }
+})
