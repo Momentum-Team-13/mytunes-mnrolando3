@@ -17,8 +17,6 @@ pageElement.appendChild(resultElement)
 //these variables are for elements on my page
 
 function buildResultList(songData) {
-    console.log("Function Line 14", songData)
-
     resultElement.innerHTML = ""
     //replaces resultElement with empty string as first action when function is called
     songData.map(function (song) {
@@ -54,8 +52,7 @@ function buildResultList(songData) {
 
 submitButton.addEventListener("click", function (event) {
     let userSearch = inputBox.value
-    console.log("userSearch Line 21", inputBox.value);
-    //this prints to the text entered by the user into the inputBox element, which occurs when the submitButton is clicked
+    //this creates a variable for the value of the input box
 
     let myTunes = `https://itunes.apple.com/search?term=${userSearch}&media=music`;
     //this defines the API link as a base with the sting of the value entered into the inputBox by the user (userSearch)
@@ -69,8 +66,6 @@ submitButton.addEventListener("click", function (event) {
             return response.json()
         })
         .then(function (data) {
-            console.log("Data Line 36", data.results)
-            //this returns an array of data results
             buildResultList(data.results)
             //this calls the buildSongList function with the promised response
         })
@@ -82,31 +77,20 @@ submitButton.addEventListener("click", function (event) {
 
 document.addEventListener("keyup", (event) => {
     if (event.key == "Enter") {
-        console.log("Enter")
         let userSearch = inputBox.value
-        console.log("userSearch Line 59", inputBox.value);
-        //this prints to the text entered by the user into the inputBox element, which occurs when the submitButton is clicked
-
         let myTunes = `https://itunes.apple.com/search?term=${userSearch}&media=music`;
-        //this defines the API link as a base with the sting of the value entered into the inputBox by the user (userSearch)
-
         fetch(myTunes, {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
         })
-            //this gets the iTunes API data
             .then(function (response) {
                 return response.json()
             })
             .then(function (data) {
-                console.log("Data Line 74", data.results)
-                //this returns an array of data results
                 buildResultList(data.results)
-                //this calls the buildSongList function with the promised response
             })
             .catch(err => {
                 window.alert("Error Encountered")
             })
-        //fetch is nested in event listener so data is only fetched when the event occurs
     }
 })
