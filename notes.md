@@ -16,6 +16,7 @@ Questions
 - NPM install
 - reloading page
 - how are HTTP errors handled in JS?
+- do I need to make another function for the search to add both or do I need to just copy the code to search with two separate event listeners??
 
 To Do
 - Filter to only show userSearch = song.artistName

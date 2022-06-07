@@ -51,3 +51,6 @@ submitButton.addEventListener("click", function (event) {
     });
     //fetch is nested in event listener so data is only fetched when the event occurs
 });
+
+document.addEventListener("keydown", (event) => {
+    if (event.key == "enter") {
