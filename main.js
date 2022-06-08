@@ -63,8 +63,10 @@ submitButton.addEventListener("click", function (event) {
     })
         //this gets the iTunes API data
         .then(function (response) {
-            return response.json()
+            if (response.ok) return response.json();
+            else throw new Error("Status code error :" + response.status)
         })
+        //need to test error
         .then(function (data) {
             buildResultList(data.results)
             if (data.results < 1) {
@@ -89,8 +91,10 @@ document.addEventListener("keyup", (event) => {
             headers: { 'Content-Type': 'application/json' },
         })
             .then(function (response) {
-                return response.json()
+                if (response.ok) return response.json();
+                else throw new Error("Status code error :" + response.status)
             })
+            //need to test error
             .then(function (data) {
                 buildResultList(data.results)
                 if (data.results < 1) {

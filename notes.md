@@ -14,9 +14,8 @@ Results
 
 Questions
 - NPM install
-- reloading page
 - how are HTTP errors handled in JS?
 
 To Do
-- message for HTTP errors in UI and how to handle in JS -- ??
+- message for HTTP errors in UI and how to handle in JS -- IN PROGRESS on lines 66 and 94
 - Track title centering in CSS
