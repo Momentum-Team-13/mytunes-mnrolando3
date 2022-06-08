@@ -5,9 +5,9 @@ Form
 - can't submit empty input - DONE
 
 Results
-- display without reloading page -- what does this mean??
+- display without reloading page -- what does this mean?? - DONE
 - determine quantity of results to return - DONE
-- message for no results
+- message for no results - DONE
 - message for HTTP errors in UI and how to handle in JS -- ??
 - include song details (title, artist, album title, image, release date) - DONE
 - ability to click song (event listener) and have it play (audio tag) - DONE
@@ -18,7 +18,5 @@ Questions
 - how are HTTP errors handled in JS?
 
 To Do
-- message for no results
-- display without reloading page -- what does this mean??
 - message for HTTP errors in UI and how to handle in JS -- ??
 - Track title centering in CSS

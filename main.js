@@ -67,6 +67,11 @@ submitButton.addEventListener("click", function (event) {
         })
         .then(function (data) {
             buildResultList(data.results)
+            if (data.results < 1) {
+                let noResults = document.createElement('div')
+                noResults.innerText = "No Results"
+                searchElement.appendChild(noResults)
+            }
             //this calls the buildSongList function with the promised response
         })
         .catch(err => {
@@ -88,6 +93,11 @@ document.addEventListener("keyup", (event) => {
             })
             .then(function (data) {
                 buildResultList(data.results)
+                if (data.results < 1) {
+                    let noResults = document.createElement('div')
+                    noResults.innerText = "No Results"
+                    searchElement.appendChild(noResults)
+                }
             })
             .catch(err => {
                 window.alert("Error Encountered")
