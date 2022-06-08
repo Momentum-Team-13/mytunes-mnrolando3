@@ -2,7 +2,7 @@ Form
 - input for artist/band that filters song data - DONE
     - key1=value1&key2=value2&key3=value3 build in innerText/innerHTML where key is 'term' and value is artist name with substituting '+' for spaces in artist name
 - input box has click "submit" button event listener and keyboard "return" event listener - DONE
-- can't submit empty input
+- can't submit empty input - DONE
 
 Results
 - display without reloading page -- what does this mean??
@@ -18,7 +18,6 @@ Questions
 - how are HTTP errors handled in JS?
 
 To Do
-- can't submit empty input
 - message for no results
 - display without reloading page -- what does this mean??
 - message for HTTP errors in UI and how to handle in JS -- ??
